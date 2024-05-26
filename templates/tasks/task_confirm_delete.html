@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Видалення завдання</h2>
+    <p>Ви впевнені, що хочете видалити завдання "{{ object.title }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-danger">Так, видалити</button>
+            <a href="{% url 'tasks:task-list' %}" class="btn btn-secondary">Ні, повернутися до списку завдань</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
